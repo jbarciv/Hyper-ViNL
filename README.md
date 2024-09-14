@@ -1,8 +1,32 @@
-# Hyper-ViNL
-Hyperparameter study for quadruped robots locomotion with Reinforcement Learning.
+# Hyperparameter Study for Quadruped Robot Locomotion using Reinforcement Learning
 
-This repository contains the work done as part of my Robotics Master's Thesis. The project builds upon the ViNL implementation by Kareer et al. [[1]](#1), which adapts the Legged Gym framework by Rudin et al. [[2]](#2) for obstacle avoidance in indoor environments using the Aliengo Unitree robot.
+This repository contains the research and work conducted as part of my Robotics Master's Thesis. The project builds upon the ViNL implementation by Kareer et al. [[1]](#1), which enhances the Legged Gym framework by Rudin et al. [[2]](#2) for obstacle avoidance in indoor environments using the Aliengo Unitree robot.
 
+Our work focuses on two main contributions:
+1. **Hyperparameter Study**: A comprehensive analysis of hyperparameters critical for optimizing quadruped robot locomotion.
+2. **New Framework Proposal**: A custom-designed framework for the deployment and validation of legged locomotion
+
+We hope this repository will benefit the robotics community by:
+- Providing insights into optimized hyperparameters for Legged Gym, leading to better training outcomes.
+- Offering a starting point for other researchers or groups, especially those with limited resources, to explore and experiment with quadruped robot locomotion.
+
+
+## Content
+- [Hyperparameter Study for Quadruped Robot Locomotion using Reinforcement Learning](#hyperparameter-study-for-quadruped-robot-locomotion-using-reinforcement-learning)
+  - [Content](#content)
+  - [Hyperparameter Study](#hyperparameter-study)
+    - [1. Baseline](#1-baseline)
+    - [2. Optimization](#2-optimization)
+    - [3. Results](#3-results)
+  - [Proposed Framework](#proposed-framework)
+  - [Acknowledgments](#acknowledgments)
+  - [References](#references)
+
+## Hyperparameter Study
+### 1. Baseline
+
+
+### 2. Optimization
 We have replicated the first two training stages:
 1) A **general purpose locomotion** policy which is trained in a rough terrain identical to the one used in [[2]](#2).
 2) An **obstacles avoidance locomotion** policy refined from the previous in a flat but cluttered environment.
@@ -12,28 +36,10 @@ Then we have conducted an hyperparameter study. The baseline
 ![Fitting_example](./figures/hyper_param_study_.png)
 
 
+### 3. Results
 
 
-## Content
-- [Hyper-ViNL](#hyper-vinl)
-  - [Content](#content)
-  - [Source code](#source-code)
-    - [1. Auto-Launch](#1-auto-launch)
-    - [2. Plotting](#2-plotting)
-    - [3. Fitting](#3-fitting)
-  - [Acknowledgments](#acknowledgments)
-  - [References](#references)
-
-## Source code
-### 1. Auto-Launch
-
-
-### 2. Plotting
-
-
-
-### 3. Fitting
-
+## Proposed Framework
 
 
 ## Acknowledgments
