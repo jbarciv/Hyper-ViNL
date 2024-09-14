@@ -1,6 +1,6 @@
 # Hyperparameter Study for Quadruped Robot Locomotion using Reinforcement Learning
 
-This repository contains the research and work conducted as part of my Robotics Master's Thesis. The project builds upon the ViNL implementation by Kareer et al. [[1]](#1), which enhances the Legged Gym framework by Rudin et al. [[2]](#2) for obstacle avoidance in indoor environments using the Aliengo Unitree robot.
+This repository contains the research and work conducted as part of my Robotics Master's Thesis. The project builds upon the ViNL implementation [[1]](#1), which enhances the Legged Gym framework [[2]](#2) for obstacle avoidance in indoor environments using the Aliengo Unitree robot.
 
 Our work focuses on two main contributions:
 1. **Hyperparameter Study**: A comprehensive analysis of hyperparameters critical for optimizing quadruped robot locomotion.
