@@ -7,7 +7,10 @@ We have replicated the first two training stages:
 1) A **general purpose locomotion** policy which is trained in a rough terrain identical to the one used in [[2]](#2).
 2) An **obstacles avoidance locomotion** policy refined from the previous in a flat but cluttered environment.
 
-Then we have conducted an hyperparameter study.
+Then we have conducted an hyperparameter study. The baseline
+
+![Fitting_example](./figures/hyper_param_study.png)
+
 
 
 
