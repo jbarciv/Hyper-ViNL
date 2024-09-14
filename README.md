@@ -9,7 +9,7 @@ We have replicated the first two training stages:
 
 Then we have conducted an hyperparameter study. The baseline
 
-![Fitting_example](./figures/hyper_param_study.png)
+![Fitting_example](./figures/hyper_param_study_.png)
 
 
 
