@@ -102,6 +102,21 @@ After confirming that $\gamma=0.95$ and $c_{\text{entropy}}=0.005$ yielded the b
 ![Final comparison](./figures/final_comparison.png)
 
 ## Proposed Framework
+To tackle the problem of quadruped locomotion, the following framework is proposed, consisting of three consecutive stages: training, testing and deployment.
+
+- **Training** involves developing a locomotion policy using reinforcement learning algorithms like PPO in simulation platforms such as Isaac Gym. This stage also includes techniques like teacher-student distillation and sim-to-real transfer strategies.
+
+- **Testing** focuses on evaluating these policies in simulated environments, such as those provided by ROS. It includes testing sensory fusion, robot models, new simulated environments in Gazebo, control architecture, loop closure speeds, and signal matching.
+
+- **Deployment** covers the design and setup of real-world test environments, executing the simulated ROS architecture on physical robots, as well as data collection and performance evaluation.
+
+![Framework](./figures/framework.png)
+
+The training process has already been explained. Below are the results for the most successful and visually appealing behavior achieved during training for both training stages.
+
+| General Purpose Locomotion | Obstacles Avoidance Locomotion |
+|---------|---------|
+| ![Rough](./figures/rough.gif) | ![Obstacles](./figures/obstacles.gif) |
 
 
 ## Acknowledgments

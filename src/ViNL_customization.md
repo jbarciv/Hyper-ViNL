@@ -104,4 +104,3 @@ sh my_train.sh
     pip install tensorflow-estimator mock
     pip install keras-applications h5py
     ```
-    If you check for remaining isues with `pip check` you may see someone related with `habitat-lab`; will be solved later...
