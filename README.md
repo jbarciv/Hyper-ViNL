@@ -81,19 +81,25 @@ We have replicated the `ViNL` first two training stages:
 The graph illustrates the average reward per episode across various stages. Each simulation was run 10 times, with a total of 5000 episodes per stage. The light blue shaded area represents the range of rewards, while the dark blue line shows the mean rewards. The black line indicates the moving average, and the overall mean is highlighted in red. Additionally, the peak mean reward is also marked.
 ![Baseline 5000](./figures/baseline_5000.png)
 To assess the convergence of the initial training phase, the simulation was extended to 10000 episodes. Next figure presents the results without reruns, where the light blue range is absent, and the blue line reflects the reward from a single simulation.
-![Baseline 5000](./figures/baseline_10000.png)
+![Baseline 10000](./figures/baseline_10000.png)
 The first training phase converged after 6000 episodes, while the second phase reached maximum reward within 1000 episodes. Additional iterations led to overfitting, making 6000-6500 episodes sufficient for phase one and 1000-1500 for phase two.
 
 #### 2. Optimization
 
+We then carried out a hyperparameter study, summarized in the table below. For each set of base hyperparameters, we conducted two experiments, totaling 22 simulations. The goal was to thoroughly explore the entire hyperparameter range while paying particular attention to the values near the baseline settings.
 
-Then we have conducted an hyperparameter study. The baseline
+![Hyperparameter study](./figures/hyper_param_study_.png)
+*PPO hyperparameters ranges were obtained from [[3]](#3). **Baseline values come from [[4]](#4).
 
-![Fitting_example](./figures/hyper_param_study_.png)
-
+For the sake of clarity, not all the graphs from each simulation are included here; they can be found in the [attached report](./TFM_Josep_Barbera.pdf). However, the two graphs where the newly studied hyperparameters led to higher rewards are included.
+![Gamma comparison](./figures/gamma_comparison.png)
+![Entropy coefficient comparison](./figures/entropy_coef_comparison.png)
+The following table presents the results of the study. Simulations that improved upon the baseline are highlighted in green, with only those showing significant improvement in bold.
+![Hyperparameter study results](./figures/comparison.png)
 
 #### 3. Conclusions
-
+After confirming that $\gamma=0.95$ and $c_{\text{entropy}}=0.005$ yielded the best results during training, a final simulation was conducted using these two new parameters and compared to the baseline. The results were satisfactory, as shown in the following figure.
+![Final comparison](./figures/final_comparison.png)
 
 ## Proposed Framework
 
@@ -109,3 +115,9 @@ Then we have conducted an hyperparameter study. The baseline
 <a id="2">[2]</a> 
 **Rudin, N., Hoeller, D., Reist, P., & Hutter, M. (2022).**  *Learning to walk in minutes using massively parallel deep reinforcement learning.*  arXiv preprint arXiv:2109.11978. 
 Available at [https://arxiv.org/abs/2109.11978](https://arxiv.org/abs/2109.11978)
+
+<a id="3">[3]</a>
+**Legged Robotics**. (2024). *Legged gym: Legged robot configurations*. GitHub repository. Accessed: 2024-08-27. Available at https://github.com/leggedrobotics/legged_gym/blob/17847702f90d8227cd31cce9c920aa53a739a09a/legged_gym/envs/base/legged_robot_config.py#L215
+
+<a id="4">[4]</a>
+**AurelianTactics**. (2018). *PPO hyperparameters and ranges*. Medium. Available at https://docs.google.com/spreadsheets/d/1fNVfqgAifDWnTq-4izPPW_CVAUu9FXl3dWkqWIXz04o/edit?usp=sharing
