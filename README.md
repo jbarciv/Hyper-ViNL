@@ -109,8 +109,9 @@ To tackle the problem of quadruped locomotion, the following framework is propos
 - **Testing** focuses on evaluating these policies in simulated environments, such as those provided by ROS. It includes testing sensory fusion, robot models, new simulated environments in Gazebo, control architecture, loop closure speeds, and signal matching.
 
 - **Deployment** covers the design and setup of real-world test environments, executing the simulated ROS architecture on physical robots, as well as data collection and performance evaluation.
-
-![Framework](./figures/framework.png)
+<div align="center">
+  <img src="./figures/framework.png" alt="Image1" width="400"/>
+</div>
 
 The **training** process has already been explained. Below are the results for the most successful and visually appealing behavior achieved during training for both training stages.
 
@@ -119,38 +120,47 @@ The **training** process has already been explained. Below are the results for t
 | ![Rough](./figures/rough.gif) | ![Obstacles](./figures/obstacles.gif) |
 
 For the **testing** phase, we propose the following ROS architecture:
-![ROS Architecture](./figures/ros_arch.png)
+
+<div align="center">
+  <img src="./figures/ros_arch.png" alt="Image1" width="400"/>
+</div>
+
 The main components for this architecture can be found in the `src/unitree_ws` directory. More detailed information is available in the [master thesis](./TFM_Josep_Barbera.pdf).
 
 For the **deployment** phase, we designed and constructed a modular test circuit to validate the locomotion policy. As an initial step, we established the baseline behavior of the Central Gait Pattern Generator (CGPG) that comes pre-configured with Unitree robots. This baseline serves as a qualitative reference for the robot’s performance in navigating the circuit and overcoming obstacles.
 
 Given the modular design of the circuit, four different configurations were tested (see the figure below). These layouts were also reproduced in Gazebo to better compare performance between the testing and deployment stages.
+
 ![Constructed mazes along with the Gazebo designs](./figures/mazes_together.png)
 
 The experimental setup is depicted in the following figure:
-<img src="./figures/general_view.png" alt="Image1" width="400"/>
-
+<div align="center">
+  <img src="./figures/general_view.png" alt="Image1" width="400"/>
+</div>
 The next table presents short videos of the robot's navigation through each of the circuits
 
-| Init       | Top       | End       |
-|----------------|----------------|----------------|
-| ![Image1](./figures/ramp_gopro.gif)               | ![Image2](./figures/ramps_fromtop.gif) | ![Image3](./figures/ramps_phone.gif) |
-| ![Image1](./figures/easy_gopro.gif)               | ![Image2](./figures/easy_fromtop.gif) | ![Image3](./figures/easy_phone.gif) |
-| ![Image4](./figures/hard_gopro.gif)               | ![Image5](./figures/hard_fromtop.gif) | ![Image6](./figures/hard_phone.gif) |
-| ![Image7](./figures/hard_gopro_stairsmode.gif)    | ![Image8](./figures/hard_fromtop_stairsmode.gif) | ![Image9](./figures/hard_phone_stairsmode.gif) |
-| ![Image10](./figures/blocks_gopro.gif)            | ![Image11](./figures/blocks_fromtop.gif) | ![Image12](./figures/blocks_phone.gif) |
-| ![Image13](./figures/blocks_gopro_backward.gif)   | ![Image14](./figures/blocks_fromtop_backward.gif) | ![Image15](./figures/blocks_phone_backwards.gif) |
-
+| Maze        | Init                                        | Top                                        | End                                        |
+|-------------|---------------------------------------------|--------------------------------------------|--------------------------------------------|
+| 1      | ![Image1](./figures/ramp_gopro.gif)          | ![Image2](./figures/ramps_fromtop.gif)      | ![Image3](./figures/ramps_phone.gif)       |
+| 2      | ![Image1](./figures/easy_gopro.gif)          | ![Image2](./figures/easy_fromtop.gif)       | ![Image3](./figures/easy_phone.gif)        |
+| 3      | ![Image4](./figures/hard_gopro.gif)          | ![Image5](./figures/hard_fromtop.gif)       | ![Image6](./figures/hard_phone.gif)        |
+| 3      | ![Image7](./figures/hard_gopro_stairsmode.gif)| ![Image8](./figures/hard_fromtop_stairsmode.gif)| ![Image9](./figures/hard_phone_stairsmode.gif)|
+| 4      | ![Image10](./figures/blocks_gopro.gif)       | ![Image11](./figures/blocks_fromtop.gif)    | ![Image12](./figures/blocks_phone.gif)     |
+| 4      | ![Image13](./figures/blocks_gopro_backward.gif)| ![Image14](./figures/blocks_fromtop_backward.gif)| ![Image15](./figures/blocks_phone_backwards.gif) |
 
 
 Circuits 1 and 2 are the easiest, requiring only a simple gait pattern, while Circuit 3 is the most challenging. The normal gait mode fails to overcome obstacles, and the stair-climbing mode struggles with descending them. Circuit 4 presents medium difficulty, successfully navigated via teleoperation.
 
 Quantitative metrics for these tests are difficult to obtain due to the complexities of teleoperating delicate hardware, making traditional measures like path error or time unreliable. More rigorous quantification, especially of the Central Gait Pattern Generator, is needed.
 
-The current gait patterns are fragile, requiring constant supervision. Improved controllers, like MPC or RL-based systems, are needed to enhance performance, especially in complex circuits. The Go2 robot was excluded from further testing due to its instability.
+The current gait patterns are fragile, requiring constant supervision. Improved controllers, like MPC or RL-based systems, are needed to enhance performance, especially in complex circuits. The Go2 robot was excluded from testing due to its instability.
 
 ## Acknowledgments
+I would like to sincerely thank Antonio Barrientos for his constant support and for giving me the opportunity to complete this TFM within the Robotics and Cybernetics group. His guidance, along with Christyan Cruz's always-available assistance, has been invaluable. I also extend my gratitude to the rest of the RobCib members (David, Jorge, Miguel, and others) for their openness, humor, and help. Special thanks to Jota for his support in hardware testing, making the process more manageable.
 
+Many thanks to Jorge Villagrá for his unwavering support, allowing me to focus on this project. I’m also grateful to the Autopía members, especially Marcos for his insights on RL and Juanlu for making work with ROS seamless. Finally, a heartfelt thank you to my family, friends, and colleagues—Pepe, Miquel, Camilo, Rafa, Javi, and everyone else—for your companionship, advice, and unforgettable memories.
+
+Special thanks to Simar Kareer for your invaluable feedback on the ViNL training stages. I hope this research serves as a stepping stone for future roboticists, enabling them to build upon this work rather than starting from scratch, and helping them push the field even further.
 
 ## References
 
