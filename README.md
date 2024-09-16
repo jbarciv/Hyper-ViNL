@@ -128,8 +128,20 @@ Given the modular design of the circuit, four different configurations were test
 ![Constructed mazes along with the Gazebo designs](./figures/mazes_together.png)
 
 The experimental setup is depicted in the following figure:
-![Experimental Setup](./figures/general_view.png)
+<img src="./figures/general_view.png" alt="Image1" width="400"/>
+
 The next table presents short videos of the robot's navigation through each of the circuits
+
+| Init       | Top       | End       |
+|----------------|----------------|----------------|
+| ![Image1](./figures/ramp_gopro.gif)               | ![Image2](./figures/ramps_fromtop.gif) | ![Image3](./figures/ramps_phone.gif) |
+| ![Image1](./figures/easy_gopro.gif)               | ![Image2](./figures/easy_fromtop.gif) | ![Image3](./figures/easy_phone.gif) |
+| ![Image4](./figures/hard_gopro.gif)               | ![Image5](./figures/hard_fromtop.gif) | ![Image6](./figures/hard_phone.gif) |
+| ![Image7](./figures/hard_gopro_stairsmode.gif)    | ![Image8](./figures/hard_fromtop_stairsmode.gif) | ![Image9](./figures/hard_phone_stairsmode.gif) |
+| ![Image10](./figures/blocks_gopro.gif)            | ![Image11](./figures/blocks_fromtop.gif) | ![Image12](./figures/blocks_phone.gif) |
+| ![Image13](./figures/blocks_gopro_backward.gif)   | ![Image14](./figures/blocks_fromtop_backward.gif) | ![Image15](./figures/blocks_phone_backwards.gif) |
+
+
 
 Circuits 1 and 2 are the easiest, requiring only a simple gait pattern, while Circuit 3 is the most challenging. The normal gait mode fails to overcome obstacles, and the stair-climbing mode struggles with descending them. Circuit 4 presents medium difficulty, successfully navigated via teleoperation.
 
