@@ -15,28 +15,84 @@ We hope this repository will benefit the robotics community by:
 - [Hyperparameter Study for Quadruped Robot Locomotion using Reinforcement Learning](#hyperparameter-study-for-quadruped-robot-locomotion-using-reinforcement-learning)
   - [Content](#content)
   - [Hyperparameter Study](#hyperparameter-study)
-    - [1. Baseline](#1-baseline)
-    - [2. Optimization](#2-optimization)
-    - [3. Results](#3-results)
+    - [Installation](#installation)
+    - [Procedure](#procedure)
+    - [Results](#results)
+      - [1. Baseline](#1-baseline)
+      - [2. Optimization](#2-optimization)
+      - [3. Conclusions](#3-conclusions)
   - [Proposed Framework](#proposed-framework)
   - [Acknowledgments](#acknowledgments)
   - [References](#references)
 
 ## Hyperparameter Study
-### 1. Baseline
 
+### Installation
 
-### 2. Optimization
-We have replicated the first two training stages:
+To replicate this research or conduct similar hyperparameter studies, follow these steps:
+
+1) Visit the [ViNL GitHub repository](https://github.com/SimarKareer/ViNL/tree/master) and follow the installation instructions. Alternatively, if you only wish to train a general-purpose locomotion policy, you can directly install the [Legged Gym repository](https://github.com/leggedrobotics/legged_gym).
+    > Note: There may be small bugs or customization tips for both ViNL and Legged Gym. Some details are summarized in the `ViNL_customization.md` file in the `src` folder.
+   
+2) Verify your installation by ensuring you can start trainings.
+
+3) Clone this repository and copy the `my_train.sh` file into the main directory.
+
+4) Create a new folder called `experiments`.
+
+5) Copy the `experiments_generator.py` and `reward_plotting.ipynb` files into the `experiments` folder.
+
+### Procedure
+
+1) Use the `experiments_generator.py` to define the hyperparameters you want to modify. There are two dictionaries in the code:
+   - `algorithm_hyperparameters`: defines the baseline values.
+   - `hyperparameter_values`: contains vectors with three values for each hyperparameter, e.g., `[new_value, baseline_value, new_value]`.
+
+   For example, if you have 11 hyperparameters and define two new values for each, running this script will create a `my_next_experiments` folder with 22 new files. Each file will be a modified copy of the original `legged_robot_config.py` (located at `pathto/ViNL/legged_gym/envs/base`), with one hyperparameter changed. The file name will correspond to the specific hyperparameter.
+
+2) Run the `my_train.sh` script. You can edit this file to adjust the number of iterations and repetitions.
+
+3) To visualize the results, use the provided code in the `reward_plotting` Jupyter notebooks.
+
+As a result, you should finish with the next folder structure:
+```
+  pathto/ViNL/
+  |- legged_gym/
+  |- licenses/
+  |- logs/
+  |- resources/
+  |- scripts/
+  |- submodules/
+  |- experiments/                   <-- (1)
+      |- experiments_generator.py   <-- (2)
+      |- reward_plotting.ipynb      <--
+  |- my_train.sh                    <-- (3)
+  |- ...
+```
+Arrows point to new files and folders to be added. It has been numbered in order: first create the folder experiments, then copy the two files into it, run the experiment generator and finally from the parent folder run the shell script.
+
+### Results
+Main outcomes about this study are summarized below:
+#### 1. Baseline
+We have replicated the `ViNL` first two training stages:
 1) A **general purpose locomotion** policy which is trained in a rough terrain identical to the one used in [[2]](#2).
-2) An **obstacles avoidance locomotion** policy refined from the previous in a flat but cluttered environment.
+2) An **obstacles avoidance locomotion** policy refined from the previous in a flat environment with many small obstacles.
+
+The graph illustrates the average reward per episode across various stages. Each simulation was run 10 times, with a total of 5000 episodes per stage. The light blue shaded area represents the range of rewards, while the dark blue line shows the mean rewards. The black line indicates the moving average, and the overall mean is highlighted in red. Additionally, the peak mean reward is also marked.
+![Baseline 5000](./figures/baseline_5000.png)
+To assess the convergence of the initial training phase, the simulation was extended to 10000 episodes. Next figure presents the results without reruns, where the light blue range is absent, and the blue line reflects the reward from a single simulation.
+![Baseline 5000](./figures/baseline_10000.png)
+The first training phase converged after 6000 episodes, while the second phase reached maximum reward within 1000 episodes. Additional iterations led to overfitting, making 6000-6500 episodes sufficient for phase one and 1000-1500 for phase two.
+
+#### 2. Optimization
+
 
 Then we have conducted an hyperparameter study. The baseline
 
 ![Fitting_example](./figures/hyper_param_study_.png)
 
 
-### 3. Results
+#### 3. Conclusions
 
 
 ## Proposed Framework
