@@ -110,7 +110,7 @@ To tackle the problem of quadruped locomotion, the following framework is propos
 
 - **Deployment** covers the design and setup of real-world test environments, executing the simulated ROS architecture on physical robots, as well as data collection and performance evaluation.
 <div align="center">
-  <img src="./figures/framework.png" alt="Image1" width="400"/>
+  <img src="./figures/framework.png" alt="Image1" width="800"/>
 </div>
 
 The **training** process has already been explained. Below are the results for the most successful and visually appealing behavior achieved during training for both training stages.
@@ -122,7 +122,7 @@ The **training** process has already been explained. Below are the results for t
 For the **testing** phase, we propose the following ROS architecture:
 
 <div align="center">
-  <img src="./figures/ros_arch.png" alt="Image1" width="400"/>
+  <img src="./figures/ros_arch.png" alt="Image1" width="800"/>
 </div>
 
 The main components for this architecture can be found in the `src/unitree_ws` directory. More detailed information is available in the [master thesis](./TFM_Josep_Barbera.pdf).
@@ -135,7 +135,7 @@ Given the modular design of the circuit, four different configurations were test
 
 The experimental setup is depicted in the following figure:
 <div align="center">
-  <img src="./figures/general_view.png" alt="Image1" width="400"/>
+  <img src="./figures/general_view.png" alt="Image1" width="600"/>
 </div>
 The next table presents short videos of the robot's navigation through each of the circuits
 
