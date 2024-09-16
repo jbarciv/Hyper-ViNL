@@ -112,12 +112,30 @@ To tackle the problem of quadruped locomotion, the following framework is propos
 
 ![Framework](./figures/framework.png)
 
-The training process has already been explained. Below are the results for the most successful and visually appealing behavior achieved during training for both training stages.
+The **training** process has already been explained. Below are the results for the most successful and visually appealing behavior achieved during training for both training stages.
 
 | General Purpose Locomotion | Obstacles Avoidance Locomotion |
 |---------|---------|
 | ![Rough](./figures/rough.gif) | ![Obstacles](./figures/obstacles.gif) |
 
+For the **testing** phase, we propose the following ROS architecture:
+![ROS Architecture](./figures/ros_arch.png)
+The main components for this architecture can be found in the `src/unitree_ws` directory. More detailed information is available in the [master thesis](./TFM_Josep_Barbera.pdf).
+
+For the **deployment** phase, we designed and constructed a modular test circuit to validate the locomotion policy. As an initial step, we established the baseline behavior of the Central Gait Pattern Generator (CGPG) that comes pre-configured with Unitree robots. This baseline serves as a qualitative reference for the robot’s performance in navigating the circuit and overcoming obstacles.
+
+Given the modular design of the circuit, four different configurations were tested (see the figure below). These layouts were also reproduced in Gazebo to better compare performance between the testing and deployment stages.
+![Constructed mazes along with the Gazebo designs](./figures/mazes_together.png)
+
+The experimental setup is depicted in the following figure:
+![Experimental Setup](./figures/general_view.png)
+The next table presents short videos of the robot's navigation through each of the circuits
+
+Circuits 1 and 2 are the easiest, requiring only a simple gait pattern, while Circuit 3 is the most challenging. The normal gait mode fails to overcome obstacles, and the stair-climbing mode struggles with descending them. Circuit 4 presents medium difficulty, successfully navigated via teleoperation.
+
+Quantitative metrics for these tests are difficult to obtain due to the complexities of teleoperating delicate hardware, making traditional measures like path error or time unreliable. More rigorous quantification, especially of the Central Gait Pattern Generator, is needed.
+
+The current gait patterns are fragile, requiring constant supervision. Improved controllers, like MPC or RL-based systems, are needed to enhance performance, especially in complex circuits. The Go2 robot was excluded from further testing due to its instability.
 
 ## Acknowledgments
 

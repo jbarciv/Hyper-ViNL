@@ -1,0 +1,44 @@
+<launch>
+    <arg name="wname" default="maze_1"/>
+    <arg name="rname" default="aliengo"/>
+    <arg name="robot_path" value="(find $(arg rname)_description)"/>
+    <arg name="dollar" value="$"/>
+    <arg name="rviz" default="true"/>
+    <arg name="paused" default="true"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="true"/>
+    <arg name="debug" default="false"/>
+    <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
+    <arg name="user_debug" default="false"/>
+
+    <arg if="$(eval arg('wname') == 'maze_1' or arg('wname') == 'maze_2' or arg('wname') == 'maze_3' or arg('wname') == 'maze_4')" name="world_path" value="$(find rl_controller)/worlds/worlds/$(arg wname).world" />
+    <!-- <arg unless="$(eval arg('wname') == 'earth' or arg('wname') == 'space' or arg('wname') == 'stairs')" name="world_path" value="$(find gazebo_worlds)/gazebo/worlds/$(arg wname).world" /> -->
+    
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_path)"/>
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+    <!-- Load the URDF into the ROS Parameter Server -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' 
+           DEBUG:=$(arg user_debug)"/>
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <!-- Set trunk and joint positions at startup -->
+    <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
+          args="-urdf -z 0.6 -x -0.2 -Y 1.57 -model $(arg rname)_gazebo -param robot_description -unpause"/>
+
+    <!-- Rviz -->
+    <group if="$(eval arg('rviz') == true)">
+        <include file="$(arg dollar)(find $(arg rname)_description)/launch/$(arg rname)_rviz_gazebo.launch">
+            <arg name="user_debug" value="$(arg user_debug)"/>
+        </include>
+    </group>
+    
+</launch>
