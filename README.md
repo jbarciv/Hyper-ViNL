@@ -10,6 +10,21 @@ We hope this repository will benefit the robotics community by:
 - Providing insights into optimized hyperparameters for Legged Gym, leading to better training outcomes.
 - Offering a starting point for other researchers or groups, especially those with limited resources, to explore and experiment with quadruped robot locomotion.
 
+> If you find this work (or code) helpful please consider citing.
+```
+@mastersthesis{barbera2024advanced,
+  title = {Advanced Locomotion for Quadruped Robots Through Reinforcement Learning},
+  author = {Josep Maria Barbera},
+  school = {E.T.S.I. Industriales, Universidad Politécnica de Madrid},
+  type = {Thesis (Master)},
+  year = {2024},
+  month = {september},
+  director = {Antonio Barrientos Cruz and Christyan Mario Cruz Ulloa},
+  keywords = {Deep Reinforcement Learning, cuadruped robots, GPUs, hyperparameters, Proximal Policy Optimization},
+  url = {https://oa.upm.es/83466/},
+  department = {Automática, Ingeniería Eléctrica y Electrónica e Informática Industrial},
+}
+```
 
 ## Content
 - [Hyperparameter Study for Quadruped Robot Locomotion using Reinforcement Learning](#hyperparameter-study-for-quadruped-robot-locomotion-using-reinforcement-learning)
